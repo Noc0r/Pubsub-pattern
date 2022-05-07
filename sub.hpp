@@ -4,5 +4,5 @@
 class subscriber
 {
 public:
-    virtual void evaluate(event_base* e) = 0;
+    virtual void evaluate(const event_base& e) = 0;
 };

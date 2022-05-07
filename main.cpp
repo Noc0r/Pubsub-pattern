@@ -39,7 +39,7 @@ class test_sub : public subscriber
             std::cout << "evaluate event1 without params" << std::endl;
             break;
         case test_event2_id:
-            evaluate(&e);
+            foo(dynamic_cast<const test_event2&>(e).params());
             break;
 
         default:
@@ -47,7 +47,7 @@ class test_sub : public subscriber
         }
     }
 
-    void evaluate(test_event2* e)
+    void foo(const args& params)
     {
         std::cout << "evaluate event with params: {" << params.a << ", " << params.b << "}" << std::endl;
     }
